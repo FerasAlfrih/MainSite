@@ -1,1 +1,1 @@
-web: gunicorn saferasoft.wsgi
+web: gunicorn saferasoft.wsgi:app
