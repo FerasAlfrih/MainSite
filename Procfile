@@ -1,1 +1,1 @@
-web: gunicorn django_project.wsgi:app
+web: gunicorn saferasoft.wsgi:app
