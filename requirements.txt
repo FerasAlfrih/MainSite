@@ -6,7 +6,7 @@ chardet==3.0.4
 Django==3.0.7
 django-countries==6.1.2
 django-crispy-forms==1.9.1
-guniorn=>20.0.0
+gunicorn==20.0.4
 html5lib==1.1
 idna==2.9
 lxml==4.5.1
