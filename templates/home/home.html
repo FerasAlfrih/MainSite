@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+{% block content %}
+
+
+
+
+<div class="container col-md-6">
+    <table class="table  bg-danger text-light">
+        <div class="ml-3 float-sm-left border-top border-dark" >
+            <h5 class="bg-white text-dark"> News from<a href="https://news.sky.com/world" class="bg-danger text-light"> CNet</a></h5>
+        </div>
+        {% for cnet in cnets %}
+        <tr>
+            <td width="240">
+                <img src="{{ cnet.img }}" align="left" width="240">
+            </td>
+            <td>
+                <h3> {{ cnet.title }}</h3>
+                <p>
+                    {{ cnet.content }}<a href="http://news.sky.com{{ cnet.href }}" class="bottom-center text-light">...read more on SkyNews</a>
+                </p>
+            </td>
+        </tr>
+                {{ value|linebreaks }}
+        {% endfor %}
+    </table>
+</div>
+{% endblock content %}

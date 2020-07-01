@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if query %}
+        {{ query }}
+    {% else %}
+        World
+    {% endif %}
+{% endblock title %}
+{% block content %}
+    <div class="container">
+        <form method="GET" id="infoForm" name="infoForm" action="/CoronavirusUpdates/">
+            <input class="text-muted" type="search" name="query" id="query" placeholder="Enter a country name">
+            <button class="btn btn-outlin-info" type="submit" value="search">Get Info</button>
+        </form>
+
+        Country: <li> {{ country }} </li>Last Updated At: <li>{{ date}}</li><br>
+        Total Cases: <li> {{ totalcases }} </li><br>
+        New Cases: <li> {{ newcases }} </li><br>
+        Total Deathes: <li> {{ totaldeathes }} </li><br>
+        New Deathes: <li> {{ newdeathes}} </li><br>
+        Total Recovered: <li> {{ totalrecovered }} </li><br>
+        Active Cases: <li> {{ activecases }} </li><br>
+        Critical Cases: <li> {{ criticalcases }} </li><br>
+        Next Update On: <li> {{ day }} </li>
+
+
+    </div>
+{% endblock content %}
