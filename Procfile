@@ -1,1 +1,1 @@
-web: bundle exec rails server -p $PORT
+web: gunicorn saferasoft.wsgi --log-file -
