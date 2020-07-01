@@ -57,39 +57,40 @@ def coInfo(request):
     else:
         q = str(query).title()
     # getting results
-    if corona.objects.filter(
-            Q(country=q)):
+    try:
         info = corona.objects.get(country=q)
-        old = corona.objects.filter()[0]
-        old = old.date
-        day = old + datetime.timedelta(days=1)
-        if day < old:
-            scraper()
-            messages.success(request, f'updated')
-        else:
-            pass
-        context_object_name = 'updates'
-        context = {
-            'country': info.country,
-            'totalcases': info.totalcases,
-            'newcases': info.newcases,
-            'totaldeathes': info.totaldeathes,
-            'newdeathes': info.newdeathes,
-            'totalrecovered': info.totalrecovered,
-            'activecases': info.activecases,
-            'criticalcases': info.criticalcases,
-            'date': info.date,
-            'query': q,
-            'day': day,
-        }
-        return render(request, 'covid_19/home.html', context)
-    else:
-        query = "Error"
+    except corona.DoesNotExist:
+        info = corona.objects.get(country='World')
         messages.error(request, f'Please check your spelling')
-        context = {
-            'query': query
-        }
-        return redirect(request, '../')
+    old = corona.objects.filter()[0]
+    old = old.date
+    day = old + datetime.timedelta(hours=1)
+    scraper(request)
+
+    context_object_name = 'updates'
+    context = {
+        'country': info.country,
+        'totalcases': info.totalcases,
+        'newcases': info.newcases,
+        'totaldeathes': info.totaldeathes,
+        'newdeathes': info.newdeathes,
+        'totalrecovered': info.totalrecovered,
+        'activecases': info.activecases,
+        'criticalcases': info.criticalcases,
+        'date': info.date,
+        'query': q,
+        'day': day,
+    }
+
+    return render(request, 'covid_19/home.html', context)
+
+    # else:
+    #     query = "Error"
+    #     messages.error(request, f'Please check your spelling')
+    #     context = {
+    #         'query': query
+    #     }
+    #     return render(request, 'covid_19/home.html', context)
 
 
 # def search(request):
