@@ -45,40 +45,39 @@
                 <a class="nav-item nav-link" href="{% url 'soon' %}">About</a>
               </div>
               <center>
-                <div class=' mt-2 mr-5 nav-item'>
+                <div class="navbar-nav">
+                  {% if user.is_authenticated %}
+                     <!--  <div class="dropdown ml-5 nav-item">
+                      <span  role="button" data-toggle="dropdown" id="prflimg" aria-haspopup="true" aria-expanded="false" style="width:75px">
+                      <table>
+                      <tr><td><a class="text-light">{{ user.firstname }} {{ user.lastname }}</a></td><td rowspan="2"><img class="rounded-circle dropdown-toggle"  width="50px"  height="50px" src="{{ user.profile.image.url }}"></td></tr>
+                      <tr><td><a class="text-secondary">{{ user.username }}</a></td></tr>
+                      </table>
+                      </span>
+
+                      <div class="dropdown-menu nav-item ml-2 bg-dark rounded" aria-labelledby="prflimg">
+                      <a class="nav-item nav-link  dropdown-item text-light" href="{% url 'profile' %} ">Profile</a>
+                      <a class="nav-item nav-link  dropdown-item text-light" href="{% url 'user-posts' user.username %}">My Posts</a>
+                      <a class="nav-item nav-link  dropdown-item text-light" href="{% url 'profile' %} ">Personal Info</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="nav-item nav-link dropdown-item text-light" href="{% url 'logout' %} ">Logout</a>
+                      </div>
+                    </div> -->
+                  {% else %}
+                    <div class= 'float-right'>
+                      <a class="nav-item " href="{% url 'soon' %} ">Login</a> |
+                      <a class="nav-item " href="{% url 'register' %} ">Register</a>
+                    </div>
+                  {% endif %}
+                </div>
+              </center>
+              <!-- Navbar Right Side -->
+              <div class=' mt-2 mr-5 nav-item'>
                   <form class="form-inline my-2 my-lg-0" action='/search/' method='GET'>
                     <input class="form-control mr-2" type="search" name="q" placeholder="Search" aria-label="Search" Required>
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
                   </form>
                 </div>
-              </center>
-              <!-- Navbar Right Side -->
-              <div class="navbar-nav">
-
-              {% if user.is_authenticated %}
-                <!-- <div class="dropdown ml-5 nav-item">
-                <span  role="button" data-toggle="dropdown" id="prflimg" aria-haspopup="true" aria-expanded="false" style="width:75px">
-                <table>
-                <tr><td><a class="text-light">{{ user.firstname }} {{ user.lastname }}</a></td><td rowspan="2"><img class="rounded-circle dropdown-toggle"  width="50px"  height="50px" src="{{ user.profile.image.url }}"></td></tr>
-                <tr><td><a class="text-secondary">{{ user.username }}</a></td></tr>
-                </table>
-                </span>
-
-                <div class="dropdown-menu nav-item ml-2 bg-dark rounded" aria-labelledby="prflimg">
-                <a class="nav-item nav-link  dropdown-item text-light" href="{% url 'profile' %} ">Profile</a>
-                <a class="nav-item nav-link  dropdown-item text-light" href="{% url 'user-posts' user.username %}">My Posts</a>
-                <a class="nav-item nav-link  dropdown-item text-light" href="{% url 'profile' %} ">Personal Info</a>
-                <div class="dropdown-divider"></div>
-                <a class="nav-item nav-link dropdown-item text-light" href="{% url 'logout' %} ">Logout</a> -->
-                </div>
-              </div>
-              {% else %}
-              <div class= 'float-right mt-2'>
-                <a class="nav-item " href="{% url 'soon' %} ">Login</a> |
-                <a class="nav-item " href="{% url 'register' %} ">Register</a>
-              </div>
-              {% endif %}
-              </div>
             </div>
           </div>
         </nav>
