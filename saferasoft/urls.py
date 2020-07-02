@@ -24,7 +24,7 @@ urlpatterns = [
     path('', include('home.urls')),
     path('', include('covid_19.urls')),
     path('register/', user_view.register, name='register'),
-    path('ComingSoon/', ssv.soon, name='under'),
+    path('ComingSoon/', ssv.soon, name='soon'),
 
 
 ]
