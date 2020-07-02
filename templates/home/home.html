@@ -1,55 +1,107 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %} Home {% endblock title %}
-{% block content %}
+{% block body %}
+<body id="home">
+    <div id="wrapper">
 
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex justify-cntent-center align-items-center">
-        <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
-
-          <!-- Slide 1 -->
-            {% for cnet in cnets %}
-              <div class="carousel-item active">
-                <div class="carousel-container">
-                  <h2 class="animate__animated animate__fadeInDown">{{ cnet.title }}</h2>
-                  <p class="animate__animated animate__fadeInUp">{{ cnet.content }}</p>
-                  <a href="{{ cnet.href }}" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
-                </div>
-              </div>
-            {% endfor %}
-
-          <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-
-          <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-
+      <!--__--__--__--__--__--  L O G O  &   N A V    B A R --__--___--__--__--__-->
+      <header>
+        <div id="logo">
+        <h1>Source X <span id="iisrt"><span id="ii">II</span>  <span id="srt">SRT</span></span></h1>
+        <div id="tagline">
+          <h2>Just another Geeksband Template !</h2>
         </div>
-    </section><!-- End Hero -->
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html" id="homenav">Home</a></li>
+            <li><a href="blog.html" id="blognav">Blog</a></li>
+            <li><a href="fullwidth.html" id="fullwidthnav">Full width</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </nav>
+      </header>
 
-{% endblock content %}
-{% block bjs %}
-    <!-- Vendor JS Files -->
-    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'vendor/jquery.easing/jquery.easing.min.js' %}"></script>
-    <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
-    <script src="{% static 'vendor/venobox/venobox.min.js' %}"></script>
-    <script src="{% static 'vendor/waypoints/jquery.waypoints.min.js' %}"></script>
-    <script src="{% static 'vendor/counterup/counterup.min.js' %}"></script>
-    <script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-    <script src="{% static 'vendor/aos/aos.js' %}"></script>
+      <!--__--__--__--__--  T H E    S L I D E R --__--__--__--___--__--__--__-->
+      <div class="slider-wrapper theme-default">
+        <div id="slider" class="nivoSlider">
+          <img src="images/slide1.jpg" alt="" />
+          <a href="http://geeksband.com"><img src="images/slide2.jpg" alt="" title="This is an example of a caption with a link" /></a>
+          <img src="images/slide3.jpg" alt="" title="This is an example of a caption" />
+          <img src="images/slide4.jpg" alt="" />
+        </div>
+      </div>
+      <script type="text/javascript">
+      $(window).load(function() {
+        $('#slider').nivoSlider({pauseTime: 6000,});
+      });
+      </script>
 
-    <!-- Template Main JS File -->
-    <script src="{% static 'js/main.js' %}"></script>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-{% endblock bjs %}
+      <!--__--__--__--__--  M A I N   C O N T E N T  --__--__--__--___--__--__-->
+      <section>
+        <div id="line">
+          <div class="dline"></div>
+          <h1>Our Services</h1>
+          <div class="dline"></div>
+        </div>
+        <div id="ourserv">
+          <article>
+            <h1>Web Design</h1>
+            <img src="images/1.jpg" alt="" />
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit amet.</p>
+            <a href="fullwidth.html" class="rm">Read More</a>
+          </article>
+          <article>
+            <h1>Graphic Design</h1>
+            <img src="images/2.jpg" alt="" />
+            <p>Consectetuer adipiscing elit. Suspendisse enim elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit.</p>
+            <a href="fullwidth.html" class="rm">Read More</a>
+          </article>
+          <article class="lastarticle">
+            <h1>Web Development</h1>
+            <img src="images/3.jpg" alt="" />
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque, id pulvinar odio lorem non turpis. Nullam sit enim.</p>
+            <a href="fullwidth.html" class="rm">Read More</a>
+          </article>
+        </div>
+        <div id="sline">
+          <div class="sdline"></div>
+          <h1>Latest Projects</h1>
+          <div class="sdline"></div>
+        </div>
+        <div id="latestp">
+          <article>
+            <h1>Lorem Ipsum Dolor Sit</h1>
+            <img src="images/1s.jpg" alt="" />
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque.</p>
+            <a href="singlepost.html" class="rm">Read More</a>
+          </article>
+          <article>
+            <h1>Lorem Ipsum Dolor Sit</h1>
+            <img src="images/2s.jpg" alt="" />
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque.</p>
+            <a href="singlepost.html" class="rm">Read More</a>
+          </article>
+          <article>
+            <h1>Lorem Ipsum Dolor Sit</h1>
+            <img src="images/3s.jpg" alt="" />
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque.</p>
+            <a href="singlepost.html" class="rm">Read More</a>
+          </article>
+          <article class="lastarticle">
+            <h1>Lorem Ipsum Dolor Sit</h1>
+            <img src="images/4s.jpg" alt="" />
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi commodo, ipsum sed pharetra gravida, orci magna rhoncus neque.</p>
+            <a href="singlepost.html" class="rm">Read More</a>
+          </article>
+        </div>
+      </section>
+      <!--__--__--__--__--  T H E    F O O T E R --__--__--__--___--__--__--__-->
+      <footer>
+        <p>Copyright &copy 2013 Source X by Youssef Nassim and Zakariya Lhamri, design from <a href="http://geeksband.com">Geeksband.com</a>. All Rights Reserved.</p>
+      </footer>
+    </div>
+  </body>
+  {% endblock body %}
