@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import views
+from . import views as ssv
 from users import views as user_view
 
 
@@ -27,4 +27,4 @@ urlpatterns = [
 
 
 ]
-handler404 = 'saferasoft.views.Er404'
+handler404 = 'ssv.Er404'
