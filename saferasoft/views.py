@@ -1,4 +1,5 @@
-from django.shortcuts import render, HttpResponseNotFound
+from django.shortcuts import render
+from django.http import HttpResponseNotFound
 
 
 def Er404(request, exception=None):
