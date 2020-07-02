@@ -37,12 +37,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarToggle">
               <div class="navbar-nav mr-auto">
-                <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
-                <a class="nav-item nav-link" href="{% url 'soon' %}">Forum</a>
-                <a class="nav-item nav-link" href="{% url 'soon' %}">Mail</a>
-                <a class="nav-item nav-link" href=" {% url 'CovUpdate' %} ">Coronavirus Info</a>
-
-                <a class="nav-item nav-link" href="{% url 'soon' %}">About</a>
+                <a class="nav-item nav-link text-light" href="{% url 'home' %}">Home</a>
+                <a class="nav-item nav-link text-light" href="{% url 'soon' %}">Forum</a>
+                <a class="nav-item nav-link text-light" href="{% url 'soon' %}">Mail</a>
+                <a class="nav-item nav-link text-light" href=" {% url 'CovUpdate' %} ">Coronavirus Info</a>
+                <a class="nav-item nav-link text-light" href="{% url 'soon' %}">About</a>
               </div>
               <center>
                 <div class="navbar-nav">
@@ -65,8 +64,8 @@
                     </div> -->
                   {% else %}
                     <div class= 'float-right'>
-                      <a class="nav-item " href="{% url 'soon' %} ">Login</a> |
-                      <a class="nav-item " href="{% url 'register' %} ">Register</a>
+                      <a class="nav-item text-light" href="{% url 'soon' %} ">Login</a> |
+                      <a class="nav-item text-light" href="{% url 'register' %} ">Register</a>
                     </div>
                   {% endif %}
                 </div>
@@ -74,7 +73,7 @@
               <!-- Navbar Right Side -->
               <div class=' mt-2 mr-5 nav-item'>
                   <form class="form-inline my-2 my-lg-0" action='/search/' method='GET'>
-                    <input class="form-control mr-2" type="search" name="q" placeholder="Search" aria-label="Search" Required>
+                    <input class="form-control" type="search" name="q" placeholder="Search" aria-label="Search" Required>
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
                   </form>
                 </div>
