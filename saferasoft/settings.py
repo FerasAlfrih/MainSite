@@ -127,6 +127,6 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = 'https://github.com/FerasAlfrih/MainSite/tree/master/static',
-STATIC_URL = "/static/"
+STATIC_URL = "https://github.com/FerasAlfrih/MainSite/tree/master/static"
 
 
