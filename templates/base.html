@@ -29,7 +29,51 @@
   <body>
     {% block header %}
       <header class="site-header">
-        <nav class="navbar bg-info text-light rounded fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-info bg-info">
+          <img class="navbar-brand" href="{% url 'home' %}" src='{% static 'img/safera.png' %}'>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link text-light" href="{% url 'home' %}">Home</a>
+                <a class="nav-item nav-link text-light" href="{% url 'soon' %}">Forum</a>
+                <a class="nav-item nav-link text-light" href="{% url 'soon' %}">Mail</a>
+                <a class="nav-item nav-link text-light" href=" {% url 'CovUpdate' %} ">Coronavirus Info</a>
+                <a class="nav-item nav-link text-light" href="{% url 'soon' %}">About</a>
+            </div>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+          <div class="navbar-nav">
+            {% if user.is_authenticated %}
+               <!--  <div class="dropdown ml-5 nav-item">
+                <span  role="button" data-toggle="dropdown" id="prflimg" aria-haspopup="true" aria-expanded="false" style="width:75px">
+                <table>
+                <tr><td><a class="text-light">{{ user.firstname }} {{ user.lastname }}</a></td><td rowspan="2"><img class="rounded-circle dropdown-toggle"  width="50px"  height="50px" src="{{ user.profile.image.url }}"></td></tr>
+                <tr><td><a class="text-secondary">{{ user.username }}</a></td></tr>
+                </table>
+                </span>
+
+                <div class="dropdown-menu nav-item ml-2 bg-dark rounded" aria-labelledby="prflimg">
+                <a class="nav-item nav-link  dropdown-item text-light" href="{% url 'profile' %} ">Profile</a>
+                <a class="nav-item nav-link  dropdown-item text-light" href="{% url 'user-posts' user.username %}">My Posts</a>
+                <a class="nav-item nav-link  dropdown-item text-light" href="{% url 'profile' %} ">Personal Info</a>
+                <div class="dropdown-divider"></div>
+                <a class="nav-item nav-link dropdown-item text-light" href="{% url 'logout' %} ">Logout</a>
+                </div>
+              </div> -->
+            {% else %}
+              <div class= 'float-right'>
+                <a class="nav-item text-light" href="{% url 'soon' %} ">Login</a> |
+                <a class="nav-item text-light" href="{% url 'register' %} ">Register</a>
+              </div>
+            {% endif %}
+          </div>
+        </nav>
+        <nav class="navbar navbar-expand-lg bg-info text-light rounded fixed-top">
           <div class="container">
             <img class="navbar-brand" href="{% url 'home' %}" src='{% static 'img/safera.png' %}'>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,31 +88,7 @@
                 <a class="nav-item nav-link text-light" href="{% url 'soon' %}">About</a>
               </div>
               <center>
-                <div class="navbar-nav">
-                  {% if user.is_authenticated %}
-                     <!--  <div class="dropdown ml-5 nav-item">
-                      <span  role="button" data-toggle="dropdown" id="prflimg" aria-haspopup="true" aria-expanded="false" style="width:75px">
-                      <table>
-                      <tr><td><a class="text-light">{{ user.firstname }} {{ user.lastname }}</a></td><td rowspan="2"><img class="rounded-circle dropdown-toggle"  width="50px"  height="50px" src="{{ user.profile.image.url }}"></td></tr>
-                      <tr><td><a class="text-secondary">{{ user.username }}</a></td></tr>
-                      </table>
-                      </span>
 
-                      <div class="dropdown-menu nav-item ml-2 bg-dark rounded" aria-labelledby="prflimg">
-                      <a class="nav-item nav-link  dropdown-item text-light" href="{% url 'profile' %} ">Profile</a>
-                      <a class="nav-item nav-link  dropdown-item text-light" href="{% url 'user-posts' user.username %}">My Posts</a>
-                      <a class="nav-item nav-link  dropdown-item text-light" href="{% url 'profile' %} ">Personal Info</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="nav-item nav-link dropdown-item text-light" href="{% url 'logout' %} ">Logout</a>
-                      </div>
-                    </div> -->
-                  {% else %}
-                    <div class= 'float-right'>
-                      <a class="nav-item text-light" href="{% url 'soon' %} ">Login</a> |
-                      <a class="nav-item text-light" href="{% url 'register' %} ">Register</a>
-                    </div>
-                  {% endif %}
-                </div>
               </center>
               <!-- Navbar Right Side -->
               <div class=' mt-2 mr-5 nav-item float-right'>
@@ -82,7 +102,6 @@
         </nav>
       </header>
     {% endblock header %}
-      <br/><br/>
     {% block main %}
       <main role="main" class="container">
         <div class="row">
