@@ -28,4 +28,4 @@ urlpatterns = [
 
 
 ]
-handler404 = 'saferasoft.views.Er404'
+# handler404 = 'saferasoft.views.Er404'
