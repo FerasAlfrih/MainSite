@@ -1,15 +1,8 @@
-from django.shortcuts import render, redirect
-import datetime
+from django.shortcuts import render
 import requests
-import re
-from django.db.models import Q
 from bs4 import BeautifulSoup
 from .models import corona
-import os
-from saferasoft.settings import BASE_DIR
 from django.contrib import messages
-from .forms import infoForm
-# Create your views here.
 
 
 def scraper(request):
@@ -43,9 +36,8 @@ def scraper(request):
 
 
 def coInfo(request):
-    form = infoForm
-    context_object_name = 'info'
     context = {}
+    scraper(request)
 
     if request.GET.get('query'):
         query = request.GET.get('query')
@@ -64,10 +56,7 @@ def coInfo(request):
         messages.error(request, f'Please check your spelling')
     old = corona.objects.filter()[0]
     old = old.date
-    day = old + datetime.timedelta(hours=1)
-    scraper(request)
 
-    context_object_name = 'updates'
     context = {
         'country': info.country,
         'totalcases': info.totalcases,
@@ -79,23 +68,6 @@ def coInfo(request):
         'criticalcases': info.criticalcases,
         'date': info.date,
         'query': q,
-        'day': day,
     }
 
     return render(request, 'covid_19/home.html', context)
-
-    # else:
-    #     query = "Error"
-    #     messages.error(request, f'Please check your spelling')
-    #     context = {
-    #         'query': query
-    #     }
-    #     return render(request, 'covid_19/home.html', context)
-
-
-# def search(request):
-#     # getting query
-#     model = corona
-#     template_name = 'covid_19/info.html'
-
-#     return render(request, 'covid_19/info.html', context)
