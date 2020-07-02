@@ -37,8 +37,8 @@
             <div class="collapse navbar-collapse" id="navbarToggle">
               <div class="navbar-nav mr-auto">
                 <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
-                <a class="nav-item nav-link" href="{% url 'home' %}">Forum</a>
-                <a class="nav-item nav-link" href="#">Mail</a>
+                <a class="nav-item nav-link" href="{% url 'soon' %}">Forum</a>
+                <a class="nav-item nav-link" href="{% url 'soon' %}">Mail</a>
                 <a class="nav-item nav-link" href=" {% url 'CovUpdate' %} ">Coronavirus Info</a>
 
                 <a class="nav-item nav-link" href="#">About</a>
@@ -73,7 +73,7 @@
               </div>
               {% else %}
               <div class= 'float-right mt-2'>
-                <a class="nav-item " href="{% url 'login' %} ">Login</a> |
+                <a class="nav-item " href="{% url 'soon' %} ">Login</a> |
                 <a class="nav-item " href="{% url 'register' %} ">Register</a>
               </div>
               {% endif %}
