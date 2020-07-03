@@ -18,6 +18,7 @@ from django.urls import path, include
 from . import views as ssv
 from users import views as user_view
 from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
